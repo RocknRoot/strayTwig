@@ -1,0 +1,25 @@
+{
+    "name": "rocknroot/stray-twig",
+    "type": "library",
+    "description": "Twig rendering for strayFw, a PHP web framework for rock 'n' rollers.",
+    "keywords": [ "framework", "twig", "strayFw" ],
+    "homepage": "http://github.com/RocknRoot/strayTwig",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Nekith",
+            "email": "nekith@errant-works.com",
+            "homepage": "http://nekith.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "twig/twig": "~1.21"
+    },
+    "autoload": {
+        "psr-4": {
+            "RocknRoot\\StrayFw\\": "src/RocknRoot/StrayFw/"
+        }
+    }
+}
