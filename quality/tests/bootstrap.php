@@ -11,9 +11,9 @@ if (false === defined('STRAY_ENV')) {
     define('STRAY_ENV', (getenv('STRAY_ENV') === 'development' ? 'development' : 'production'));
 }
 
-/*require STRAY_PATH_VENDOR . 'autoload.php';
+require STRAY_PATH_VENDOR . 'autoload.php';
 
 use RocknRoot\StrayFw\Bootstrap;
 use RocknRoot\StrayFw\Console\Console;
 
-Bootstrap::init();*/
+Bootstrap::init();

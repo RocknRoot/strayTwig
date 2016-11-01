@@ -47,7 +47,7 @@ class RenderTwig implements RenderInterface
     {
         $this->args = $args;
         $this->request = $request;
-        $this->templatesDir = ltrim(rtrim($templatesDir, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
+        $this->templatesDir = DIRECTORY_SEPARATOR . ltrim(rtrim($templatesDir, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
         $this->fileName = $fileName;
     }
 
@@ -58,7 +58,7 @@ class RenderTwig implements RenderInterface
      */
     public function render()
     {
-        $env = Twig::getEnv($this->request->getDir() . DIRECTORY_SEPARATOR . $this->templatesDir);
+        $env = Twig::getEnv($this->templatesDir);
         $template = $env->loadTemplate($this->fileName);
         if (isset($this->args['request']) === false) {
             $this->args['request'] = $this->request;

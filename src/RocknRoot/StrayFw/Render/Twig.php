@@ -74,9 +74,6 @@ abstract class Twig
                 'cache' => $tmp . 'twig_compil',
                 'debug' => (STRAY_ENV === 'development')
             ));
-            if (STRAY_ENV === 'development') {
-                $env = new \DebugBar\Bridge\Twig\TraceableTwigEnvironment($env);
-            }
             self::$environments[$dir] = $env;
             if (STRAY_ENV === 'development') {
                 self::$environments[$dir]->addExtension(new \Twig_Extension_Debug());
