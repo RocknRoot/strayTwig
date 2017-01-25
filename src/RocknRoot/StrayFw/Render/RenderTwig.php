@@ -3,7 +3,6 @@
 namespace RocknRoot\StrayFw\Render;
 
 use RocknRoot\StrayFw\Http\Request;
-use RocknRoot\StrayFw\Render\ArgsTrait;
 
 /**
  * Twig template render class.
