@@ -11,8 +11,6 @@ use RocknRoot\StrayFw\Http\Request;
  */
 class RenderTwig implements RenderInterface
 {
-    use ArgsTrait;
-
     /**
      * Associated request.
      *
@@ -40,11 +38,9 @@ class RenderTwig implements RenderInterface
      * @param Request $request      associated request
      * @param string  $templatesDir templates directory
      * @param string  $fileName     template file name
-     * @param array   $args         base arguments
      */
-    public function __construct(Request $request, $templatesDir, $fileName, array $args = array())
+    public function __construct(Request $request, $templatesDir, $fileName)
     {
-        $this->args = $args;
         $this->request = $request;
         $this->templatesDir = DIRECTORY_SEPARATOR . ltrim(rtrim($templatesDir, DIRECTORY_SEPARATOR), DIRECTORY_SEPARATOR);
         $this->fileName = $fileName;
@@ -55,14 +51,14 @@ class RenderTwig implements RenderInterface
      *
      * @return string content
      */
-    public function render()
+    public function render(array $args)
     {
         $env = Twig::getEnv($this->templatesDir);
         $template = $env->loadTemplate($this->fileName);
-        if (isset($this->args['request']) === false) {
-            $this->args['request'] = $this->request;
+        if (isset($args['request']) === false) {
+            $args['request'] = $this->request;
         }
 
-        return $template->render($this->args);
+        return $template->render($args);
     }
 }
