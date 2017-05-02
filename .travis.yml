@@ -9,6 +9,7 @@ before_script:
   - ./configure
   - make
   - make install
+  - cd ..
   - phpenv config-add travisphp.ini
   - composer install
 
