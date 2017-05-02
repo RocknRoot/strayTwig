@@ -11,6 +11,7 @@ Code is free, new-BSD license. So... fork us !
 ## Requirements
 
 * PHP >= 7.0
+* PHP >= 7.1 for development (phan)
 
 ## Get started
 
