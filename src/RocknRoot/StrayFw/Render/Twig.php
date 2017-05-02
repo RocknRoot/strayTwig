@@ -78,18 +78,16 @@ abstract class Twig
             if (STRAY_ENV === 'development') {
                 self::$environments[$dir]->addExtension(new \Twig_Extension_Debug());
             }
-            self::$environments[$dir]->addFunction('fwBody', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::fwBody'));
-            self::$environments[$dir]->addFunction('fwHead', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::fwHead'));
-            self::$environments[$dir]->addFunction('route', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::route'));
-            self::$environments[$dir]->addFunction('tr', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::tr'));
-            self::$environments[$dir]->addFunction('url', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::url'));
-            self::$environments[$dir]->addFunction('localizedDate', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::localizedDate'));
-            self::$environments[$dir]->addFunction('session', new \Twig_Function_Function('\\RocknRoot\\StrayFw\\Render\\TwigHelper::session'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('route', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::route'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('tr', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::tr'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('url', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::url'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('localizedDate', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::localizedDate'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('session', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::session'));
             foreach (self::$extensions as $ext) {
                 self::$environments[$dir]->addExtension($ext);
             }
             foreach (self::$functions as $label => $name) {
-                self::$environments[$dir]->addFunction($label, new \Twig_Function_Function($name));
+                self::$environments[$dir]->addFunction(new \Twig_Function($label, $name));
             }
         }
 

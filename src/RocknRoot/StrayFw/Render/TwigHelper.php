@@ -18,33 +18,6 @@ use RocknRoot\StrayFw\Locale\Locale;
 abstract class TwigHelper
 {
     /**
-     * Display framework HTML body content.
-     *
-     * @static
-     * @return string
-     */
-    public static function fwBody()
-    {
-        if (STRAY_ENV === 'development') {
-            echo \RocknRoot\StrayFw\Debug\Bar::getBody();
-        }
-    }
-
-    /**
-     * Display framework HTML head content.
-     *
-     * @static
-     * @return string
-     */
-    public static function fwHead()
-    {
-        if (STRAY_ENV === 'development') {
-            echo '<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>' . PHP_EOL;
-            echo \RocknRoot\StrayFw\Debug\Bar::getHead();
-        }
-    }
-
-    /**
      * Get nice URL for specified route.
      *
      * @static

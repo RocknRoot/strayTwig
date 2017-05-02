@@ -2,29 +2,23 @@
 
 [![Build Status](https://travis-ci.org/RocknRoot/strayTwig.png?branch=master)](https://travis-ci.org/RocknRoot/strayTwig)
 
-The strayFw is a PHP framework trying to be modern without following fashion.
+[strayFw](https://github.com/RocknRoot/strayFw 'strayFw') is a PHP framework trying to be modern without following fashion, between full-featured frameworks and micro-frameworks.
 
-* Homepage : ???
-* [strayFw repository](https://github.com/RocknRoot/strayFw)
-
-User guide is ??somewhere?? on the homepage. So... read it !
+This repository is an Twig adapter for strayFw.
 
 Code is free, new-BSD license. So... fork us !
 
 ## Requirements
 
-* PHP >= 5.4
-* A project using strayFw
+* PHP >= 7.0
 
-## Installation
+## Get started
 
-Coming.
+    $ php composer.phar require rocknroot/stray-twig
 
 ## Need help ?
 
-Read the fraktastic manual !
-
-Or add an issue on github ! ;)
+You can add an issue on github ! ;)
 
 ## Contribute
 
@@ -36,6 +30,10 @@ Or add an issue on github ! ;)
     * [PSR-2](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md 'PSR-2')
     * [PSR-3](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md 'PSR-3')
     * [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md 'PSR-4')
+
+### Static analysis
+
+    $ ./vendor/bin/phan
 
 ### Coding standards
 

@@ -18,7 +18,8 @@
         "twig/twig": "^2.0"
     },
     "require-dev": {
-        "rocknroot/stray-fw": "dev-master"
+        "rocknroot/stray-fw": "dev-master",
+        "etsy/phan": "^0.9.1"
     },
     "autoload": {
         "psr-4": {
