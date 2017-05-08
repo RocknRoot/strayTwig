@@ -5,7 +5,6 @@ namespace RocknRoot\StrayFw\Render;
 use RocknRoot\StrayFw\Http\Helper as HttpHelper;
 use RocknRoot\StrayFw\Http\Request;
 use RocknRoot\StrayFw\Http\Session;
-use RocknRoot\StrayFw\Locale\Date;
 use RocknRoot\StrayFw\Locale\Locale;
 
 /**
@@ -60,17 +59,17 @@ abstract class TwigHelper
      * Get a localized date from a time stamp.
      *
      * @static
-     * @param  int|string $time   time stamp or 'now'
-     * @param  string     $format date format
+     * @param  int|string $time       time stamp or 'now'
+     * @param  int        $dateFormat date format
+     * @param  int        $timeFormat time format
      * @return string     localized formatted date
      */
-    public static function localizedDate($time, $format)
+    public static function localizedDate($time, int $dateFormat, int $timeFormat)
     {
         if ($time === 'now') {
             $time = time();
         }
-        $date = new Date();
-        $date->setPattern($format);
+        $date = new \IntlDateFormatter::create(Locale::getCurrentLanguage(), $dateFormat, $timeFormat);
 
         return $date->format($time);
     }
