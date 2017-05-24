@@ -80,6 +80,8 @@ abstract class Twig
             }
             self::$environments[$dir]->addFunction(new \Twig_Function('route', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::route'));
             self::$environments[$dir]->addFunction(new \Twig_Function('tr', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::tr'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('langFull', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::langFull'));
+            self::$environments[$dir]->addFunction(new \Twig_Function('langPrimary', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::langPrimary'));
             self::$environments[$dir]->addFunction(new \Twig_Function('url', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::url'));
             self::$environments[$dir]->addFunction(new \Twig_Function('localizedDate', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::localizedDate'));
             self::$environments[$dir]->addFunction(new \Twig_Function('session', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::session'));

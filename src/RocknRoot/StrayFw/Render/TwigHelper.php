@@ -44,6 +44,29 @@ abstract class TwigHelper
     }
 
     /**
+     * Get full tag for current language.
+     *
+     * @static
+     * @return string tag
+     */
+    public static function langFull()
+    {
+        return Locale::getCurrentLanguage();
+    }
+
+    /**
+     * Get primary tag for current language.
+     *
+     * @static
+     * @return string primary tag
+     */
+    public static function langPrimary()
+    {
+        $lang = Locale::getCurrentLanguage();
+        return substr($lang, 0, stripos('-', $lang));
+    }
+
+    /**
      * Get nice URL.
      *
      * @static
