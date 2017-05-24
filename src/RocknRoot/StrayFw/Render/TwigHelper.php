@@ -92,7 +92,7 @@ abstract class TwigHelper
         if ($time === 'now') {
             $time = time();
         }
-        $date = new \IntlDateFormatter::create(Locale::getCurrentLanguage(), $dateFormat, $timeFormat);
+        $date = \IntlDateFormatter::create(Locale::getCurrentLanguage(), $dateFormat, $timeFormat);
 
         return $date->format($time);
     }

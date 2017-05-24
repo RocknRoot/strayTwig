@@ -4,7 +4,7 @@
 
 [strayFw](https://github.com/RocknRoot/strayFw 'strayFw') is a PHP framework trying to be modern without following fashion, between full-featured frameworks and micro-frameworks.
 
-This repository is an Twig adapter for strayFw.
+This repository is a Twig adapter for strayFw.
 
 Code is free, new-BSD license. So... fork us !
 
@@ -38,5 +38,5 @@ You can add an issue on github ! ;)
 
 ### Coding standards
 
-    $ curl http://get.sensiolabs.org/php-cs-fixer.phar -o php-cs-fixer.phar
-    $ php php-cs-fixer.phar fix src/RocknRoot/StrayFw --level=psr2 --fixers=extra_empty_lines,remove_lines_between_uses,return,single_array_no_trailing_comma,spaces_before_semicolon,spaces_cast,unused_use,whitespacy_lines,concat_with_spaces,ordered_use
+    $ curl -L http://cs.sensiolabs.org/download/php-cs-fixer-v2.phar -o php-cs-fixer.phar
+    $ php php-cs-fixer.phar fix src/RocknRoot/StrayFw --rules='{"@PSR2": true,"no_trailing_comma_in_singleline_array":true,"no_singleline_whitespace_before_semicolons":true,"concat_space":{"spacing":"one"},"no_unused_imports":true,"no_whitespace_in_blank_line":true,"ordered_imports":true,"blank_line_after_opening_tag":true,"declare_equal_normalize":{"space":"single"},"function_typehint_space":true,"hash_to_slash_comment":true,"lowercase_cast":true,"method_separation":true,"native_function_casing":true,"no_blank_lines_after_class_opening":true,"no_blank_lines_after_phpdoc":true,"no_leading_import_slash":true,"no_leading_namespace_whitespace":true,"no_mixed_echo_print":{"use":"echo"}}'
