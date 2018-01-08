@@ -63,7 +63,13 @@ abstract class TwigHelper
     public static function langPrimary()
     {
         $lang = Locale::getCurrentLanguage();
-        return substr($lang, 0, stripos('-', $lang));
+        if (($pos = strpos($lang, '-')) !== false) {
+            $lang = substr($lang, 0, $pos);
+        }
+        if (($pos = strpos($lang, '_')) !== false) {
+            $lang = substr($lang, 0, $pos);
+        }
+        return $lang;
     }
 
     /**
