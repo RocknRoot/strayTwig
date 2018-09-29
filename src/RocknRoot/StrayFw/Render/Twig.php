@@ -5,9 +5,8 @@ namespace RocknRoot\StrayFw\Render;
 use RocknRoot\StrayFw\Config;
 use RocknRoot\StrayFw\Exception\BadUse;
 use RocknRoot\StrayFw\Exception\InvalidDirectory;
-use \Twig_Environment;
-use \Twig_Extension;
-use \Twig_Function;
+use Twig_Environment;
+use Twig_Extension;
 
 /**
  * Wrapper and configuration class for Twig.

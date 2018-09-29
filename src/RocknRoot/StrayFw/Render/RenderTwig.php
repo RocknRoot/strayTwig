@@ -3,8 +3,8 @@
 namespace RocknRoot\StrayFw\Render;
 
 use RocknRoot\StrayFw\Http\Request;
-use \Twig_Loader_Filesystem;
-use \Twig_Environment;
+use Twig_Environment;
+use Twig_Loader_Filesystem;
 
 /**
  * Twig template render class.
