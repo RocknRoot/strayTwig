@@ -17,20 +17,6 @@ use RocknRoot\StrayFw\Locale\Locale;
 abstract class TwigHelper
 {
     /**
-     * Get nice URL for specified route.
-     *
-     * @static
-     * @param  Request $request current request
-     * @param  string  $route   route name
-     * @param  array   $args    route arguments
-     * @return string  nice URL
-     */
-    public static function route(Request $request, $route, array $args = array())
-    {
-        return HttpHelper::niceUrlForRoute($request, $route, $args);
-    }
-
-    /**
      * Get a translation from loaded files.
      *
      * @static
@@ -38,7 +24,7 @@ abstract class TwigHelper
      * @param  array  $args translation arguments values
      * @return string translated content
      */
-    public static function tr($key, $args = array())
+    public static function tr($key, $args = array()) : string
     {
         return Locale::translate($key, $args);
     }
@@ -49,7 +35,7 @@ abstract class TwigHelper
      * @static
      * @return string tag
      */
-    public static function langFull()
+    public static function langFull() : string
     {
         return Locale::getCurrentLanguage();
     }
@@ -60,7 +46,7 @@ abstract class TwigHelper
      * @static
      * @return string primary tag
      */
-    public static function langPrimary()
+    public static function langPrimary() : string
     {
         $lang = Locale::getCurrentLanguage();
         if (($pos = strpos($lang, '-')) !== false) {
@@ -79,7 +65,7 @@ abstract class TwigHelper
      * @param  string $url raw URL
      * @return string nice URL
      */
-    public static function url($url)
+    public static function url($url) : string
     {
         return HttpHelper::niceUrl($url);
     }
@@ -93,7 +79,7 @@ abstract class TwigHelper
      * @param  int        $timeFormat time format
      * @return string     localized formatted date
      */
-    public static function localizedDate($time, int $dateFormat, int $timeFormat)
+    public static function localizedDate($time, int $dateFormat, int $timeFormat) : string
     {
         if ($time === 'now') {
             $time = time();

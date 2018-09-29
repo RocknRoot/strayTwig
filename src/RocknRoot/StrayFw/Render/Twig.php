@@ -5,6 +5,9 @@ namespace RocknRoot\StrayFw\Render;
 use RocknRoot\StrayFw\Config;
 use RocknRoot\StrayFw\Exception\BadUse;
 use RocknRoot\StrayFw\Exception\InvalidDirectory;
+use \Twig_Environment;
+use \Twig_Extension;
+use \Twig_Function;
 
 /**
  * Wrapper and configuration class for Twig.
@@ -19,7 +22,7 @@ abstract class Twig
      * Existing Twig environments.
      *
      * @static
-     * @var Twig_Environment[]
+     * @var \Twig_Environment[]
      */
     protected static $environments = array();
 
@@ -27,7 +30,7 @@ abstract class Twig
      * Registered extensions.
      *
      * @static
-     * @var Twig_Extension[]
+     * @var \Twig_Extension[]
      */
     protected static $extensions = array();
 
@@ -49,7 +52,7 @@ abstract class Twig
      * @param  string           $dir template directory
      * @return Twig_Environment corresponding environment
      */
-    public static function getEnv($dir)
+    public static function getEnv($dir) : Twig_Environment
     {
         if (isset(self::$environments[$dir]) === false) {
             $dir = rtrim($dir, '/') . '/';
@@ -62,7 +65,7 @@ abstract class Twig
             }
             $tmp = rtrim($settings['tmp'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
             if ($tmp[0] != DIRECTORY_SEPARATOR) {
-                $tmp = STRAY_PATH_ROOT . $tmp;
+                $tmp = constant('STRAY_PATH_ROOT') . $tmp;
             }
             if (is_dir($tmp . 'twig_compil/') == false) {
                 if (mkdir($tmp . 'twig_compil') === false) {
@@ -72,10 +75,10 @@ abstract class Twig
             $loader = new \Twig_Loader_Filesystem($dir);
             $env = new \Twig_Environment($loader, array(
                 'cache' => $tmp . 'twig_compil',
-                'debug' => (STRAY_ENV === 'development')
+                'debug' => (constant('STRAY_ENV') === 'development')
             ));
             self::$environments[$dir] = $env;
-            if (STRAY_ENV === 'development') {
+            if (constant('STRAY_ENV') === 'development') {
                 self::$environments[$dir]->addExtension(new \Twig_Extension_Debug());
             }
             self::$environments[$dir]->addFunction(new \Twig_Function('route', '\\RocknRoot\\StrayFw\\Render\\TwigHelper::route'));
@@ -115,14 +118,14 @@ abstract class Twig
      *
      * @static
      * @param string $label       function name in Twig templates
-     * @param string $functioName function name
+     * @param string $functionName function name
      */
     public static function addFunction($label, $functionName)
     {
         if (isset(self::$functions[$label]) === false) {
             self::$functions[$label] = $functionName;
             foreach (self::$environments as $env) {
-                $env->addFunction($label, new \Twig_Function_Function($functionName));
+                $env->addFunction(new \Twig_Function($label, $functionName));
             }
         }
     }

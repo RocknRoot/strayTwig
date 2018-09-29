@@ -3,6 +3,8 @@
 namespace RocknRoot\StrayFw\Render;
 
 use RocknRoot\StrayFw\Http\Request;
+use \Twig_Loader_Filesystem;
+use \Twig_Environment;
 
 /**
  * Twig template render class.
@@ -51,9 +53,10 @@ class RenderTwig implements RenderInterface
      *
      * @return string content
      */
-    public function render(array $args)
+    public function render(array $args) : string
     {
-        $env = Twig::getEnv($this->templatesDir);
+        $loader = new Twig_Loader_Filesystem($this->templatesDir);
+        $env = new Twig_Environment($loader);
         $template = $env->loadTemplate($this->fileName);
         if (isset($args['request']) === false) {
             $args['request'] = $this->request;
