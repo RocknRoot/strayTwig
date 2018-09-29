@@ -23,7 +23,7 @@ abstract class TwigHelper
      * @param  array  $args translation arguments values
      * @return string translated content
      */
-    public static function tr($key, $args = array()) : string
+    public static function tr(string $key, array $args = array()) : string
     {
         return Locale::translate($key, $args);
     }
@@ -64,7 +64,7 @@ abstract class TwigHelper
      * @param  string $url raw URL
      * @return string nice URL
      */
-    public static function url($url) : string
+    public static function url(string $url) : string
     {
         return HttpHelper::niceUrl($url);
     }
@@ -95,7 +95,7 @@ abstract class TwigHelper
      * @param  string $name key
      * @return mixed
      */
-    public static function session($name)
+    public static function session(string $name)
     {
         return Session::get($name);
     }

@@ -51,7 +51,7 @@ abstract class Twig
      * @param  string           $dir template directory
      * @return Twig_Environment corresponding environment
      */
-    public static function getEnv($dir) : Twig_Environment
+    public static function getEnv(string $dir) : Twig_Environment
     {
         if (isset(self::$environments[$dir]) === false) {
             $dir = rtrim($dir, '/') . '/';
@@ -119,7 +119,7 @@ abstract class Twig
      * @param string $label       function name in Twig templates
      * @param string $functionName function name
      */
-    public static function addFunction($label, $functionName)
+    public static function addFunction(string $label, string $functionName)
     {
         if (isset(self::$functions[$label]) === false) {
             self::$functions[$label] = $functionName;
